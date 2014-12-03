@@ -39,3 +39,5 @@ var myCtrl = new MyController();
 // routeRegexString, funcHit, funcMiss, register, contextForHitMiss
 Routing.RoutingManager.bypass = new Route(undefined, ()=>{/*all missed*/, undefined, false, myCtrl);
 </pre>
+<br>
+<b>More information can be found in the file comments</b>
