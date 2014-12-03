@@ -1,0 +1,5 @@
+load:
+ - ../scripts/**/*.js
+
+test:
+ - ../test/**/*.js

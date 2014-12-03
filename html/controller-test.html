@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>TypeScript Controller Views</title>
+    <style type="text/css">
+        div {
+            padding: 20px;
+            margin: 20px;
+            width: 200px;
+            height: 200px;
+            max-width: 200px;
+            max-height: 200px;
+            overflow: hidden;
+            display: inline-block;
+            border: 1px solid black;
+            background-color: antiquewhite;
+        }
+        a {
+            border: 1px solid black;
+            padding: 4px;
+            margin:  4px;
+            text-decoration: none;
+        }
+        a:hover {
+            background-color: yellow;
+        }
+        ul {
+            border: 1px solid black;
+            min-height: 200px;
+            margin: 20px 20px 0 0;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+
+<br>
+<a href="#RouteA">Route A</a>
+<a href="#Ctrl/b/1/2">Route B optional parameter filled</a>
+<a href="#Ctrl/b/1">Route B optional parameter empty</a>
+<a href="#None">Miss all routes</a><br>
+<br>
+
+<div id="viewA">
+    This is view A
+</div>
+<div id="viewB">
+    This is view B
+</div>
+<div id="viewC">
+    This is view C
+</div>
+
+<ul id="viewD"></ul>
+
+<script type="text/javascript" src="../scripts/Routing/route-manager.js"></script>
+<script type="text/javascript" src="../scripts/Routing/hash-parser.js"></script>
+<script type="text/javascript" src="../scripts/Routing/route.js"></script>
+<script type="text/javascript" src="../scripts/Meta/function-parser.js"></script>
+<script type="text/javascript" src="../scripts/Meta/annotation-info.js"></script>
+<script type="text/javascript" src="../scripts/Meta/annotation.js"></script>
+<script type="text/javascript" src="../scripts/Meta/annotated.js"></script>
+<script type="text/javascript" src="../scripts/Routing/Annotations/route.js"></script>
+<script type="text/javascript" src="controller-test.js"></script>
+</body>
+</html>
