@@ -14,9 +14,9 @@ module Routing {
         private static routesMap = {};
 
         /**
-         * Used for page refresh, else the route would fire twice.
+         * Used for stacking load functions
          */
-        private static _oldHash;
+        private static _onload;
 
         /**
          * Routes when all routes were missed
@@ -51,9 +51,6 @@ module Routing {
          * Fires when hash is changed, executes all registered routes
          */
         static onHashChanged():void {
-            if (RouteManager._oldHash === window.location.hash) return;
-            RouteManager._oldHash = window.location.hash;
-
             var hashFragment = window.location.hash.substr(1);
             if (hashFragment.length === 0) return;
 
@@ -84,11 +81,16 @@ module Routing {
          * Initialize route manager
          */
         static init() {
-            window.addEventListener('hashchange', RouteManager.onHashChanged, true);
+            window.onhashchange = RouteManager.onHashChanged;
+            RouteManager._onload = window.onload;
+            if (window.onload === null)
+                window.onload = RouteManager.onHashChanged;
+            else
+                window.onload = function (e) {
+                    RouteManager._onload(e);
+                    RouteManager.onHashChanged();
+                };
 
-            var _oldHash =  window.location.hash;
-            window.location.hash = '';
-            window.location.hash = _oldHash;
         }
 
         /**
