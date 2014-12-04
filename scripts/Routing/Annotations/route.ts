@@ -101,8 +101,9 @@ module Routing.Annotations {
                     className = Meta.FunctionParser.getFunctionName(info.annotated.constructor.toString());
                 }
                 routeRegex = className + '/' + info.funcName;
-                for (var i = 0; i < info.funcParamNames.length; i++)
-                    routeRegex += Route.getRegexPartForParam(info.funcParamNames[i]); // build standard route
+                if (info.funcParamNames !== undefined)
+                    for (var i = 0; i < info.funcParamNames.length; i++)
+                        routeRegex += Route.getRegexPartForParam(info.funcParamNames[i]); // build standard route
             }
             else {
                 routeRegex = info.args.path; // custom route
