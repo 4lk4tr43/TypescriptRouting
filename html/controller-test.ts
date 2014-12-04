@@ -1,4 +1,4 @@
-///<reference path="../scripts/Routing/Annotations/controller.ts"/>
+///<reference path="../scripts/Routing/Annotations/route.ts"/>
 ///<reference path="../scripts/Meta/Annotated.ts"/>
 ///<reference path="../scripts/Routing/route-manager.ts"/>
 
