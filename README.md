@@ -7,6 +7,7 @@ Minimalistic routing engine for typescript
 
 <h3>Usage</h3>
 <ol>
+<li>Add routing.js to your html</li>
 <li>Derive a class from Meta.Annotated</li>
 <li>Insert 'Routing.Annotations.Route' into a class method to handle hash changes to the route</li>
 <li>(optional) Define routes on your own by adding arguments to the annotation. E.g. 'Routing.Annotations.Route={"path":".*", "register":false}';
