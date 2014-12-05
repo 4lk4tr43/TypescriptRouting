@@ -41,7 +41,7 @@ var myCtrl = new MyController();
 Routing.RoutingManager.bypass = new Route(undefined, ()=>{/*all missed*/, undefined, false, myCtrl);
 </pre>
 <hr>
-<b>More information can be found in the file comments</b>
+<b>More information can be found in the file comments</b><br>
 <b>More information about the Meta module can be found in TypescriptMeta</b>
 <hr>
 Collaborators are always welcome!
