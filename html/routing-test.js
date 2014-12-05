@@ -2,7 +2,7 @@
 window.onload = function () {
     console.log('Window ready\n');
     var context = { hit: false, miss: false };
-    var route = new Routing.Route('b/.+/.+', function (res, next) {
+    var route = new Routing.RouteDescription('b/.+/.+', function (res, next) {
         this.hit = true;
         console.log('Hit args: ' + res.a.b + ' ' + res.a.c + ' ' + next);
         console.log('Context set ' + context.hit);

@@ -1,5 +1,5 @@
 ///<reference path="../../Meta/annotated.ts"/>
-///<reference path="../route.ts"/>
+///<reference path="../route-description.ts"/>
 
 module Routing.Annotations {
 
@@ -111,7 +111,7 @@ module Routing.Annotations {
             }
 
             var routes = info.annotated.getRoutes();
-            routes.push(new Routing.Route(routeRegex, info.annotated[info.funcName], info.annotated[info.funcName + 'Miss'],
+            routes.push(new Routing.RouteDescription(routeRegex, info.annotated[info.funcName], info.annotated[info.funcName + 'Miss'],
                 activate, info.annotated)); // build a route for the hit and miss
         }
     }

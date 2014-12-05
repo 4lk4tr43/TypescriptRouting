@@ -38,7 +38,7 @@ class MyController extends Meta.Annotated {
 var myCtrl = new MyController();
 
 // routeRegexString, funcHit, funcMiss, register, contextForHitMiss
-Routing.RoutingManager.bypass = new Route(undefined, ()=>{/*all missed*/, undefined, false, myCtrl);
+Routing.RoutingManager.bypass = new RouteDescription(undefined, ()=>{/*all missed*/, undefined, false, myCtrl);
 </pre>
 <hr>
 <b>More information can be found in the file comments</b><br>

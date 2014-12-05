@@ -17,7 +17,7 @@ var Ctrl = (function (_super) {
         this.viewC = document.querySelector('#viewC');
         this.viewD = document.querySelector('#viewD');
         var self = this;
-        Routing.RouteManager.bypass = new Routing.Route(undefined, function () {
+        Routing.RouteManager.bypass = new Routing.RouteDescription(undefined, function () {
             self.viewA['innerHTML'] = 'This is view A';
             self.viewB['innerHTML'] = 'This is view B';
             self.viewC['innerHTML'] = 'This is view C';
@@ -76,4 +76,7 @@ var Ctrl = (function (_super) {
 })(Meta.Annotated);
 //noinspection JSUnusedGlobalSymbols
 var ctrl = new Ctrl();
+function SetRoute() {
+    Routing.RouteManager.setHash('#RouteA', true);
+}
 //# sourceMappingURL=controller-test.js.map

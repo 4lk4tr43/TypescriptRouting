@@ -4,7 +4,7 @@ window.onload = function () {
     console.log('Window ready\n');
 
     var context = {hit: false, miss: false};
-    var route = new Routing.Route(
+    var route = new Routing.RouteDescription(
         'b/.+/.+',
         function (res, next) {
             this.hit = true;

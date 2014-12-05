@@ -1,5 +1,5 @@
 ///<reference path="hash-parser.ts"/>
-///<reference path="route.ts"/>
+///<reference path="route-description.ts"/>
 
 module Routing {
 
@@ -16,12 +16,13 @@ module Routing {
         /**
          * Used for stacking load functions
          */
-        private static _onload;
+        private static _onload:any;
 
+        private static _silentHashUpdate:boolean;
         /**
          * Routes when all routes were missed
          */
-        static bypass:Route;
+        static bypass:RouteDescription;
 
         /**
          * Executes an array of routes
@@ -31,7 +32,7 @@ module Routing {
          * @param regex :RegExp, the regexp to decide for hit, miss
          * @param routes :Route[], the routes to be executed
          */
-        private static executeRoutes(hashFragment:string, routesRegex:string, regex:RegExp, routes:Route[]):boolean {
+        private static executeRoutes(hashFragment:string, routesRegex:string, regex:RegExp, routes:RouteDescription[]):boolean {
             var match = hashFragment.match(regex);
             var args = HashParser.getArguments(hashFragment, routesRegex);
 
@@ -51,6 +52,10 @@ module Routing {
          * Fires when hash is changed, executes all registered routes
          */
         static onHashChanged():void {
+            if (RouteManager._silentHashUpdate) {
+                RouteManager._silentHashUpdate = false;
+                return;
+            }
             var hashFragment = window.location.hash.substr(1);
             if (hashFragment.length === 0) return;
 
@@ -98,7 +103,7 @@ module Routing {
          *
          * @param route :Route, the route instance
          */
-        static addRoute(route:Route):void {
+        static addRoute(route:RouteDescription):void {
             var routesMap = this.routesMap;
 
             if (routesMap[route.routeRegex] === undefined)
@@ -111,7 +116,7 @@ module Routing {
          *
          * @param route :Route, the route instance
          */
-        static removeRoute(route:Route):void {
+        static removeRoute(route:RouteDescription):void {
             var routesMap = this.routesMap;
 
             for (var routesRegex in routesMap) {
@@ -124,6 +129,13 @@ module Routing {
                     routes.splice(index, 1);
                     break;
                 }
+            }
+        }
+
+        static setHash(hash:string, silentUpdate:boolean=true) {
+            if (window.location.hash !== hash) {
+                RouteManager._silentHashUpdate = silentUpdate;
+                window.location.hash = hash;
             }
         }
     }

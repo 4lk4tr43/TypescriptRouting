@@ -13,7 +13,7 @@ class Ctrl extends Meta.Annotated {
         super();
 
         var self = this;
-        Routing.RouteManager.bypass = new Routing.Route(undefined, ()=> {
+        Routing.RouteManager.bypass = new Routing.RouteDescription(undefined, ()=> {
             self.viewA['innerHTML'] = 'This is view A';
             self.viewB['innerHTML'] = 'This is view B';
             self.viewC['innerHTML'] = 'This is view C';
@@ -79,3 +79,7 @@ class Ctrl extends Meta.Annotated {
 }
 //noinspection JSUnusedGlobalSymbols
 var ctrl = new Ctrl();
+
+function SetRoute() {
+    Routing.RouteManager.setHash('#RouteA', true);
+}

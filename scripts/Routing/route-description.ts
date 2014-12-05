@@ -5,7 +5,7 @@ module Routing {
     /**
      * Stores route information
      */
-    export class Route {
+    export class RouteDescription {
         /**
          * The route is managed by the route manager
          *
