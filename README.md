@@ -42,5 +42,6 @@ Routing.RoutingManager.bypass = new Route(undefined, ()=>{/*all missed*/, undefi
 </pre>
 <hr>
 <b>More information can be found in the file comments</b>
+<b>More information about the Meta module can be found in TypescriptMeta</b>
 <hr>
 Collaborators are always welcome!
