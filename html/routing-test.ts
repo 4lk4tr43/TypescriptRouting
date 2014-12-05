@@ -16,6 +16,7 @@ window.onload = function () {
             console.log('Miss');
             console.log('Context set ' + context.miss);
         },
+        true,
         context);
 
     route.register();
