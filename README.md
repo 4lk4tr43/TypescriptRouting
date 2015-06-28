@@ -44,4 +44,4 @@ Routing.RoutingManager.bypass = new RouteDescription(undefined, ()=>{/*all misse
 <b>More information can be found in the file comments</b><br>
 <b>More information about the Meta module can be found in TypescriptMeta</b>
 <hr>
-Collaborators are always welcome!
+<b>Project abandoned</b>
